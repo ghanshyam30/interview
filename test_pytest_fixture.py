@@ -48,4 +48,7 @@ class Test_Example2():
 '''
 How to execute the pytest with log cli option
 >pytest -rA -o log_cli=true -o log_cli_level="INFO" test_pytest_fixture.py
+
+Reference:
+https://betterprogramming.pub/understand-5-scopes-of-pytest-fixtures-1b607b5c19ed
 '''
