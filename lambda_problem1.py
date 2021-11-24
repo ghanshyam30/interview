@@ -17,12 +17,30 @@ list1 = [
         {
             'name': 'LMN',
             'certificates': 'perl,JS,python'
+        },
+        {
+            'name': 'HIJ',
+            'certificates': 'perl,JS,python'
+        },
+        {
+            'name': 'EFG',
+            'certificates': 'perl,JS,python'
         }
     ]
 
 # Print input as it is
 print(list1)
 
-# Lambda function
-result = len(list(map(lambda item: item["certificates"] if item["name"]== "LMN" else None, list1))[2].split(","))
+# Lambda function - non correct way
+# result = len(list(map(lambda item: item["certificates"] if item["name"]== "LMN" else None, list1))[2].split(","))
+
+# perfect solution
+result = len(list(map(lambda item: item["certificates"],filter(lambda item: item["name"]== "LMN", list1)))[0].split(","))
 print(result)
+
+# Details about perfect solution
+# Filter will get us only matching record which will be dictionary with all the record attributes i.e name, cert, also anything else that it has
+# Map will allow us to operate on filter object to get only certificates attribute value from filtered record object
+# Then we will convert this certificates value as List element
+# will access this only list element as [0] index and split it with "," 
+# we can get length of the splitted list
